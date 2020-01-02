@@ -51,7 +51,7 @@
 					</div>
 				<?php $c++; } ?>
 
-				<?php if (getOption('libratus_stats_news_latest_bottom') && class_exists('Zenpage') && ZP_NEWS_ENABLED) { ?>
+				<?php if (getOption('libratus_stats_news_latest_bottom') && class_exists('Zenpage') && class_exists('CMS') && hasNews()) { ?>
 					<div class="<?php echo $class; ?>">
 						<h5><?php echo gettext('Latest News'); ?></h5>
 						<div><?php printLatestNews(3) ?></div>

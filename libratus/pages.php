@@ -1,5 +1,5 @@
 <?php
-if ((class_exists('Zenpage')) && (ZP_PAGES_ENABLED)) {
+if ((class_exists('Zenpage')) && (class_exists('CMS') && hasPages())) {
 include('inc-header.php'); ?>
 
 		<div id="page-header" class="wrap" style="background-image: linear-gradient(rgba(0, 0, 0, 0.65),rgba(0, 0, 0, 0.65)), url(<?php echo $bg; ?>);">

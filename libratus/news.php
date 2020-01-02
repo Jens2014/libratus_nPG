@@ -1,14 +1,14 @@
 <?php
-if ((class_exists('Zenpage')) && (ZP_NEWS_ENABLED)) {
+if ((class_exists('Zenpage')) && (class_exists('CMS') && hasNews())) {
 include('inc-header.php'); ?>
 
 		<div id="page-header" class="wrap" style="background-image: linear-gradient(rgba(0, 0, 0, 0.65),rgba(0, 0, 0, 0.65)), url(<?php echo $bg; ?>);">
 			<div class="inner">
 				<?php if (is_NewsArticle()) { ?>
 				<h1><?php printNewsTitle(); ?></h1>
-				<?php } elseif (in_context(ZP_ZENPAGE_NEWS_DATE)) { ?>
+				<?php } elseif (in_context(ZENPAGE_NEWS_DATE)) { ?>
 				<h1><?php printCurrentNewsArchive(''); ?></h1>
-				<?php } elseif (in_context(ZP_ZENPAGE_NEWS_CATEGORY)) { ?>
+				<?php } elseif (in_context(ZENPAGE_NEWS_CATEGORY)) { ?>
 				<h1><?php printCurrentNewsCategory(''); ?></h1>
 				<div id="desc"><?php printNewsCategoryDesc(); ?></div>
 				<?php } else { ?>

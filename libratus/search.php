@@ -5,8 +5,8 @@ $numimages = getNumImages();
 $numalbums = getNumAlbums();
 $total = $numimages + $numalbums;
 if ($zenpage && !isArchive()) {
-	if (ZP_NEWS_ENABLED) { $numnews = getNumNews(); } else { $numnews = 0; }
-	if (ZP_PAGES_ENABLED) { $numpages = getNumPages(); } else { $numpages = 0; }
+	if (class_exists('CMS') && hasNews()) { $numnews = getNumNews(); } else { $numnews = 0; }
+	if (class_exists('CMS') && hasPages()) { $numpages = getNumPages(); } else { $numpages = 0; }
 	$zpcount = $numpages + $numnews;
 	$total = $total + $numnews + $numpages;
 } else {
