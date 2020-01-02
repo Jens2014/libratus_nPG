@@ -5,7 +5,7 @@
 				<h1><?php echo gettext('Archive').' - '.$stat_title; ?></h1>
 			</div>
 		</div>
-		
+
 		<div class="bar">
 			<div class="inner">
 				<?php echo $quickmenu; ?>
@@ -17,19 +17,19 @@
 				</div>
 			</div>
 		</div>
-		
+
 		<?php if (is_numeric(getOption('libratus_stats_number'))) { $number = getOption('libratus_stats_number'); } else { $number = 30; } ?>
-		
+
 		<div id="main" class="wrap clearfix">
 			<div class="inner">
 				<div class="gallery pad">
-				
-					<?php if ($stat_type == 'albums') { 
+
+					<?php if ($stat_type == 'albums') {
 					$albums = getAlbumStatistic($number,$stat_option,'',1); ?>
 
 					<div class="gallery-thumbs-large">
 						<?php if ($albums) {
-						foreach ($albums as $album) { 
+						foreach ($albums as $album) {
 						$albumthumb = $album->getAlbumThumbImage();
 						?>
 						<div>
@@ -44,7 +44,7 @@
 										if (($album->getCommentsAllowed()) && ($album->getCommentCount() > 0)) { ?>
 										<div class="album-com-count"><i class="fa fa-comments"></i><span> <?php echo $album->getCommentCount(); ?></span></div>
 										<?php }
-									} 
+									}
 									if ($stat_option == 'mostrated' || $stat_option == 'toprated') {
 									$votes = $album->get("total_votes");
 									$value = $album->get("total_value");
@@ -63,16 +63,16 @@
 								<h3 class="album-title"><?php echo html_encode($album->getTitle()) ;?></h3>
 							</div>
 							<i class="fa fa-angle-up mobile-click-details"></i>
-						</div>	
-						<?php } 
+						</div>
+						<?php }
 						} else {
-						echo '<br /><p>'.gettext('Sorry, no statistical page to show...').'</p>'; 
+						echo '<br /><p>'.gettext('Sorry, no statistical page to show...').'</p>';
 						} ?>
 					</div>
-					
-					<?php } elseif ($stat_type == 'images') { 
+
+					<?php } elseif ($stat_type == 'images') {
 					$images = getImageStatistic(25, $stat_option, '', false, 1); ?>
-					
+
 					<div class="gallery-thumbs">
 						<?php if ($images) {
 						foreach ($images as $image) { ?>
@@ -88,7 +88,7 @@
 									if (($image->getCommentsAllowed()) && ($image->getCommentCount() > 0)) { ?>
 									<div class="image-cr"><i class="fa fa-comments"></i><span> <?php echo $image->getCommentCount(); ?></span></div>
 									<?php }
-								} 
+								}
 								if ($stat_option == 'mostrated' || $stat_option == 'toprated') {
 									$votes = $image->get("total_votes");
 									$value = $image->get("total_value");
@@ -105,24 +105,24 @@
 							</div>
 							<i class="fa fa-angle-up mobile-click-details"></i>
 						</div>
-						<?php } 
+						<?php }
 						} else {
-						echo '<br /><p class="pad">'.gettext('Sorry, no statistical page to show...').'</p>'; 
+						echo '<br /><p class="pad">'.gettext('Sorry, no statistical page to show...').'</p>';
 						} ?>
 					</div>
-					
+
 					<?php } else {
-					echo '<br /><p class="pad">'.gettext('Sorry, no statistical page to show...').'</p>'; 
+					echo '<br /><p class="pad">'.gettext('Sorry, no statistical page to show...').'</p>';
 					} ?>
-				
+
 				</div>
 
 				<div class="gallery-sidebar pad">
-					<?php printSearchForm('','search',$_zp_themeroot.'/images/magnifying_glass_16x16.png',gettext('Search gallery'),$_zp_themeroot.'/images/list_12x11.png'); ?>	
+					<?php printSearchForm('','search',$_themeroot.'/images/magnifying_glass_16x16.png',gettext('Search gallery'),$_themeroot.'/images/list_12x11.png'); ?>
 					<hr />
-					<?php include ('inc-archive-stats-menu.php'); ?> 	
+					<?php include ('inc-archive-stats-menu.php'); ?>
 				</div>
 			</div>
 		</div>
-		
+
 <?php include('inc-footer.php');

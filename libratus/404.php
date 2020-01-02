@@ -5,7 +5,7 @@
 				<h1><?php echo gettext('404'); ?></h1>
 			</div>
 		</div>
-		
+
 		<div class="bar">
 			<div class="inner">
 				<?php echo $quickmenu; ?>
@@ -15,7 +15,7 @@
 				</div>
 			</div>
 		</div>
-			
+
 		<div id="main" class="wrap clearfix">
 			<div class="inner">
 				<div class="page pad">
@@ -28,5 +28,5 @@
 				</div>
 			</div>
 		</div>
-		
+
 <?php include('inc-footer.php'); ?>

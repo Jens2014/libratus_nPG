@@ -1,10 +1,10 @@
 <?php
-/*	zpBase simple social sharing include 
+/*	zpBase simple social sharing include
 *	This file is included on a page to show social sharing links, if set in options
 *	http://www.oswebcreations.com
 ================================================== */
 ?>
-<?php 
+<?php
 $host = sanitize("http://" . $_SERVER['HTTP_HOST']);
 $url = $host . getRequestURI();
 

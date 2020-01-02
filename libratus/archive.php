@@ -1,4 +1,4 @@
-<?php 
+<?php
 // check for stats archive links via GET
 if (isset($_GET['set'])) {
 	switch ($_GET['set']) {
@@ -37,7 +37,7 @@ if (isset($_GET['set'])) {
 			$stat_title = gettext('Top Rated Images');
 			$stat_option = 'toprated';
 			break;
-			
+
 		case 'latestalbumsbyid':
 			$stat_type = 'albums';
 			$stat_title = gettext('Latest Albums by ID');
@@ -77,7 +77,7 @@ if (isset($_GET['set'])) {
 			$stat_type = 'albums';
 			$stat_title = gettext('Latest Updated Albums');
 			$stat_option = 'latestupdated';
-			break;	
+			break;
 		default:
 			$stat_type = '';
 			break;
@@ -85,12 +85,12 @@ if (isset($_GET['set'])) {
 	if (!$stat_type) {
 		include(SERVERPATH . '/' . ZENFOLDER . '/404.php');
 		exit;
-	} else { 
-		include ('archive-stats.php'); 
+	} else {
+		include ('archive-stats.php');
 		exit;
 	}
 }
-		
+
 // else normal archive
 include ('inc-header.php'); ?>
 
@@ -99,7 +99,7 @@ include ('inc-header.php'); ?>
 				<h1><?php echo gettext('Archive'); ?></h1>
 			</div>
 		</div>
-		
+
 		<div class="bar">
 			<div class="inner">
 				<?php echo $quickmenu; ?>
@@ -110,22 +110,22 @@ include ('inc-header.php'); ?>
 				</div>
 			</div>
 		</div>
-			
+
 		<div id="main" class="wrap clearfix">
 			<div class="inner">
 				<div class="gallery archive pad">
 					<?php if (getOption('libratus_date_images')) { ?>
-					<div class="block archive">	
+					<div class="block archive">
 						<h5><?php echo gettext('Gallery Archive'); ?></h5>
 						<div class="archive-cols">
 							<?php printAllDates('archive','year','month'); ?>
 						</div>
 					</div>
 					<?php } ?>
-					
+
 					<?php if ($zenpage && ZP_NEWS_ENABLED) { ?>
 					<?php if ((getNumNews(true) > 0) && (getOption('libratus_date_news'))) { ?>
-					<div class="block archive">	
+					<div class="block archive">
 						<h5><?php echo gettext('News Archive'); ?></h5>
 						<div class="archive-cols">
 							<?php printNewsArchive('archive','year','month'); ?>
@@ -133,8 +133,8 @@ include ('inc-header.php'); ?>
 					</div>
 					<?php }
 					} ?>
-					
-					<div class="block archive">	
+
+					<div class="block archive">
 						<h5><?php echo gettext('Tags'); ?></h5>
 						<div class="archive-cols">
 							<?php printAllTagsAs('list','year','results',true,true,2,50,1); ?>
@@ -144,11 +144,11 @@ include ('inc-header.php'); ?>
 				</div>
 
 				<div class="gallery-sidebar pad">
-					<?php printSearchForm('','search',$_zp_themeroot.'/images/magnifying_glass_16x16.png',gettext('Search gallery'),$_zp_themeroot.'/images/list_12x11.png'); ?>	
+					<?php printSearchForm('','search',$_themeroot.'/images/magnifying_glass_16x16.png',gettext('Search gallery'),$_themeroot.'/images/list_12x11.png'); ?>
 					<hr />
-					<?php include ('inc-archive-stats-menu.php'); ?> 	
+					<?php include ('inc-archive-stats-menu.php'); ?>
 				</div>
 			</div>
 		</div>
-		
+
 <?php include('inc-footer.php');

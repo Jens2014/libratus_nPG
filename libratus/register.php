@@ -6,7 +6,7 @@ include ('inc-header.php'); ?>
 				<h1><?php echo gettext('User Registration') ?></h1>
 			</div>
 		</div>
-		
+
 		<div class="bar">
 			<div class="inner">
 				<?php echo $quickmenu; ?>
@@ -16,7 +16,7 @@ include ('inc-header.php'); ?>
 				</div>
 			</div>
 		</div>
-			
+
 		<div id="main" class="wrap clearfix">
 			<div class="inner">
 				<div class="page pad">
@@ -28,8 +28,8 @@ include ('inc-header.php'); ?>
 				</div>
 			</div>
 		</div>
-		
-<?php 
+
+<?php
 include('inc-footer.php');
 } else {
 include(SERVERPATH . '/' . ZENFOLDER . '/404.php');

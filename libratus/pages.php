@@ -1,4 +1,4 @@
-<?php 
+<?php
 if ((class_exists('Zenpage')) && (ZP_PAGES_ENABLED)) {
 include('inc-header.php'); ?>
 
@@ -18,12 +18,12 @@ include('inc-header.php'); ?>
 				</div>
 			</div>
 		</div>
-			
+
 		<div id="main" class="wrap clearfix">
 			<div class="inner">
 				<div class="page pad">
 					<?php printPageContent(); ?>
-					<?php $singletag = getTags(); $tagstring = implode(', ', $singletag); 
+					<?php $singletag = getTags(); $tagstring = implode(', ', $singletag);
 					if (strlen($tagstring) > 0) { ?>
 					<div class="block"><em><?php echo gettext('Tags: '); ?></em><?php printTags('links','','taglist', ', '); ?></div>
 					<?php } ?>
@@ -32,7 +32,7 @@ include('inc-header.php'); ?>
 
 				<div class="page-sidebar pad">
 					<?php $hasFeaturedImage = false; if (function_exists('printSizedFeaturedImage')) $hasFeaturedImage = getFeaturedImage();
-					if ($hasFeaturedImage) { 
+					if ($hasFeaturedImage) {
 						if (is_numeric(getOption('libratus_maxwidth'))) {
 								$size = .70 * getOption('libratus_maxwidth');
 							} else {
@@ -45,13 +45,13 @@ include('inc-header.php'); ?>
 					<hr />
 					<?php } ?>
 					<?php if (getOption('libratus_date_pages')) { ?><em><?php echo gettext('Last Updated: '); ?></em><?php echo getPageLastChangeDate(); ?><hr /><?php } ?>
-					
+
 					<?php if (getPageExtraContent()) printPageExtraContent(); ?>
 					<?php if (getOption('libratus_social')) include ('inc-socialshare.php'); ?>
 					<?php if (!function_exists('printCommentForm')) { ?>
 					<?php if (function_exists('printRating')) { ?>
 					<div id="rating" class="block"><?php printRating(); ?></div>
-					<?php } 
+					<?php }
 					} ?>
 					<?php if (function_exists('printRelatedItems')) { ?>
 					<hr />
@@ -60,7 +60,7 @@ include('inc-header.php'); ?>
 				</div>
 			</div>
 		</div>
-		
+
 		<?php if (function_exists('printCommentForm')) { ?>
 		<div id="comments-page" class="wrap clearfix">
 			<div class="inner">
@@ -75,9 +75,9 @@ include('inc-header.php'); ?>
 			</div>
 		</div>
 		<?php } ?>
-		
-		
-<?php 
+
+
+<?php
 include('inc-footer.php');
 } else {
 include(SERVERPATH . '/' . ZENFOLDER . '/404.php');

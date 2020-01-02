@@ -1,6 +1,6 @@
 		<div id="bottom-links" class="clearfix">
 			<div class="inner pad">
-				
+
 				<div id="login-register">
 				<?php if(function_exists("printUserLogin_out")) { ?>
 				<span>
@@ -10,18 +10,18 @@
 					<i class="fa fa-key fa-fw"></i> <?php printCustomPageURL(gettext('Login'),'password',''); ?>
 				<?php } ?>
 				</span>
-				<?php } ?>			
+				<?php } ?>
 				<?php if (!zp_loggedin() && function_exists('printRegistrationForm')) { ?>
 				&middot; <i class="fa fa-users fw"></i> <?php printCustomPageURL(gettext('Register'),'register','',''); ?>
 				<?php } ?>
 				</div>
-				
+
 				<?php if (class_exists('RSS')) { ?>
 				<div id="rsslinks">
 					<i class="fa fa-rss fa-fw"></i>
-					<?php if (($_zp_gallery_page == 'news.php') && (getOption('RSS_articles'))) {
-					printRSSLink('News','',gettext('RSS News'),'',false); 
-					} elseif (($_zp_gallery_page == 'pages.php') && (getOption('RSS_pages'))) {
+					<?php if (($_gallery_page == 'news.php') && (getOption('RSS_articles'))) {
+					printRSSLink('News','',gettext('RSS News'),'',false);
+					} elseif (($_gallery_page == 'pages.php') && (getOption('RSS_pages'))) {
 					printRSSLink('Pages','',gettext('RSS Pages'),'',false);
 					} elseif (getOption('RSS_album_image')) {
 					printRSSLink('Gallery','',gettext('RSS Gallery'),'',false);
@@ -31,40 +31,40 @@
 
 			</div>
 		</div>
-		
-		<?php if (getOption('libratus_bottom_stats_perrow')) { $c=0; 
-		
+
+		<?php if (getOption('libratus_bottom_stats_perrow')) { $c=0;
+
 		if (getOption('libratus_bottom_stats_perrow') == 1) $class = 'twelve columns';
 		if (getOption('libratus_bottom_stats_perrow') == 2) $class = 'six columns';
 		if (getOption('libratus_bottom_stats_perrow') == 3) $class = 'four columns';
 		if (getOption('libratus_bottom_stats_perrow') == 4) $class = 'three columns';
-		
+
 		if (is_numeric(getOption('libratus_bottom_stats_number'))) { $number = getOption('libratus_bottom_stats_number'); } else { $number = 5; }
 		?>
 		<div id="bottom-modules" class="wrap clearfix">
 			<div class="inner pad">
 				<div class="row">
-				
+
 				<?php if (getOption('libratus_stats_gal_desc_bottom')) { ?>
 					<div class="<?php echo $class; ?>">
 						<div class="gal-desc-bottom"><?php printGalleryDesc(); ?></div>
 					</div>
 				<?php $c++; } ?>
-				
+
 				<?php if (getOption('libratus_stats_news_latest_bottom') && class_exists('Zenpage') && ZP_NEWS_ENABLED) { ?>
 					<div class="<?php echo $class; ?>">
 						<h5><?php echo gettext('Latest News'); ?></h5>
 						<div><?php printLatestNews(3) ?></div>
 					</div>
 				<?php $c++; } ?>
-				
+
 				<?php if (getOption('libratus_stats_comments_latest_bottom') && class_exists('comment_form')) { ?>
 					<div class="<?php echo $class; ?>">
 						<h5><?php echo gettext('Latest Comments'); ?></h5>
 						<div><?php printLatestComments(3); ?></div>
 					</div>
 				<?php $c++; } ?>
-				
+
 				<?php if (getOption('libratus_stats_images_popular_bottom')) {
 					if ($c==getOption('libratus_bottom_stats_perrow')) { echo '</div><div class="row">'; $c=0; } ?>
 					<div class="<?php echo $class; ?>">
@@ -82,7 +82,7 @@
 						</div>
 					</div>
 				<?php $c++; } ?>
-				
+
 				<?php if (getOption('libratus_stats_images_latestbyid_bottom')) {
 					if ($c==getOption('libratus_bottom_stats_perrow')) { echo '</div><div class="row">'; $c=0; } ?>
 					<div class="<?php echo $class; ?>">
@@ -100,7 +100,7 @@
 						</div>
 					</div>
 				<?php $c++; } ?>
-				
+
 				<?php if (getOption('libratus_stats_images_latestbymtime_bottom')) {
 					if ($c==getOption('libratus_bottom_stats_perrow')) { echo '</div><div class="row">'; $c=0; } ?>
 					<div class="<?php echo $class; ?>">
@@ -118,7 +118,7 @@
 						</div>
 					</div>
 				<?php $c++; } ?>
-				
+
 				<?php if (getOption('libratus_stats_images_latestbydate_bottom')) {
 					if ($c==getOption('libratus_bottom_stats_perrow')) { echo '</div><div class="row">'; $c=0; } ?>
 					<div class="<?php echo $class; ?>">
@@ -136,7 +136,7 @@
 						</div>
 					</div>
 				<?php $c++; } ?>
-				
+
 				<?php if (getOption('libratus_stats_images_latestbypdate_bottom')) {
 					if ($c==getOption('libratus_bottom_stats_perrow')) { echo '</div><div class="row">'; $c=0; } ?>
 					<div class="<?php echo $class; ?>">
@@ -154,7 +154,7 @@
 						</div>
 					</div>
 				<?php $c++; } ?>
-				
+
 				<?php if (getOption('libratus_stats_images_mostrated_bottom')) {
 					if ($c==getOption('libratus_bottom_stats_perrow')) { echo '</div><div class="row">'; $c=0; } ?>
 					<div class="<?php echo $class; ?>">
@@ -172,7 +172,7 @@
 						</div>
 					</div>
 				<?php $c++; } ?>
-				
+
 				<?php if (getOption('libratus_stats_images_toprated_bottom')) {
 					if ($c==getOption('libratus_bottom_stats_perrow')) { echo '</div><div class="row">'; $c=0; } ?>
 					<div class="<?php echo $class; ?>">
@@ -190,9 +190,9 @@
 						</div>
 					</div>
 				<?php $c++; } ?>
-				
-				
-				
+
+
+
 				<?php if (getOption('libratus_stats_albums_popular_bottom')) {
 					if ($c==getOption('libratus_bottom_stats_perrow')) { echo '</div><div class="row">'; $c=0; } ?>
 					<div class="<?php echo $class; ?>">
@@ -210,7 +210,7 @@
 						</div>
 					</div>
 				<?php $c++; } ?>
-				
+
 				<?php if (getOption('libratus_stats_albums_latestbyid_bottom')) {
 					if ($c==getOption('libratus_bottom_stats_perrow')) { echo '</div><div class="row">'; $c=0; } ?>
 					<div class="<?php echo $class; ?>">
@@ -228,7 +228,7 @@
 						</div>
 					</div>
 				<?php $c++; } ?>
-				
+
 				<?php if (getOption('libratus_stats_albums_latestbymtime_bottom')) {
 					if ($c==getOption('libratus_bottom_stats_perrow')) { echo '</div><div class="row">'; $c=0; } ?>
 					<div class="<?php echo $class; ?>">
@@ -246,7 +246,7 @@
 						</div>
 					</div>
 				<?php $c++; } ?>
-				
+
 				<?php if (getOption('libratus_stats_albums_latestbydate_bottom')) {
 					if ($c==getOption('libratus_bottom_stats_perrow')) { echo '</div><div class="row">'; $c=0; } ?>
 					<div class="<?php echo $class; ?>">
@@ -264,7 +264,7 @@
 						</div>
 					</div>
 				<?php $c++; } ?>
-				
+
 				<?php if (getOption('libratus_stats_albums_mostrated_bottom')) {
 					if ($c==getOption('libratus_bottom_stats_perrow')) { echo '</div><div class="row">'; $c=0; } ?>
 					<div class="<?php echo $class; ?>">
@@ -282,7 +282,7 @@
 						</div>
 					</div>
 				<?php $c++; } ?>
-				
+
 				<?php if (getOption('libratus_stats_albums_toprated_bottom')) {
 					if ($c==getOption('libratus_bottom_stats_perrow')) { echo '</div><div class="row">'; $c=0; } ?>
 					<div class="<?php echo $class; ?>">
@@ -300,7 +300,7 @@
 						</div>
 					</div>
 				<?php $c++; } ?>
-				
+
 				<?php if (getOption('libratus_stats_albums_latestupdated_bottom')) {
 					if ($c==getOption('libratus_bottom_stats_perrow')) { echo '</div><div class="row">'; $c=0; } ?>
 					<div class="<?php echo $class; ?>">
@@ -318,19 +318,19 @@
 						</div>
 					</div>
 				<?php $c++; } ?>
-				
+
 				</div>
 
 			</div>
 		</div>
 		<?php } ?>
-		
-		<div id="footer" class="clearfix">	
+
+		<div id="footer" class="clearfix">
 			<div class="inner pad">
 				<?php if (function_exists('printLanguageSelector')) { ?><?php printLanguageSelector("langselector"); ?><?php } ?>
-			
+
 				<div id="copyright"><?php echo getOption('libratus_copy'); ?></div>
-				
+
 				<?php $libratus_sociallinks = false;
 				if ($fb_linkurl = getOption('libratus_facebook')) $libratus_sociallinks = true;
 				if ($tw_linkurl = getOption('libratus_twitter')) $libratus_sociallinks = true;
@@ -348,14 +348,14 @@
 
 	</div><!-- close #container -->
 
-<script src="<?php echo $_zp_themeroot; ?>/js/jquery.imagesloaded.min.js"></script>
-<script src="<?php echo $_zp_themeroot; ?>/js/justifiedgallery/jquery.justifiedGallery.min.js"></script>
-<script src="<?php echo $_zp_themeroot; ?>/js/swipebox/js/jquery.swipebox.js"></script>
-<script src="<?php echo $_zp_themeroot; ?>/js/pushy.min.js"></script>
-<script src="<?php echo $_zp_themeroot; ?>/js/scrollfix.js"></script>
-<script src="<?php echo $_zp_themeroot; ?>/js/libratus_zp.js"></script>
+<script src="<?php echo $_themeroot; ?>/js/jquery.imagesloaded.min.js"></script>
+<script src="<?php echo $_themeroot; ?>/js/justifiedgallery/jquery.justifiedGallery.min.js"></script>
+<script src="<?php echo $_themeroot; ?>/js/swipebox/js/jquery.swipebox.js"></script>
+<script src="<?php echo $_themeroot; ?>/js/pushy.min.js"></script>
+<script src="<?php echo $_themeroot; ?>/js/scrollfix.js"></script>
+<script src="<?php echo $_themeroot; ?>/js/libratus_zp.js"></script>
 
-<?php if ($_zp_gallery_page == 'index.php') { ?>
+<?php if ($_gallery_page == 'index.php') { ?>
 <script>
 /**
  * cbpBGSlideshow.js v1.0.0
@@ -378,7 +378,7 @@ var cbpBGSlideshow = (function() {
 			$navNext : $controls.find( 'span.cbp-binext' ),
 			$navPlayPause : $controls.find( 'span.cbp-bipause' )
 		},
-		// current item´s index
+		// current itemï¿½s index
 		current = 0,
 		// timeout
 		slideshowtime,
@@ -391,7 +391,7 @@ var cbpBGSlideshow = (function() {
 
 		// preload the images
 		$slideshow.imagesLoaded( function() {
-			
+
 			if( Modernizr.backgroundsize ) {
 				$items.each( function() {
 					var $item = $( this );
@@ -410,7 +410,7 @@ var cbpBGSlideshow = (function() {
 			startSlideshow();
 
 		} );
-		
+
 	}
 
 	function initEvents() {
@@ -429,15 +429,15 @@ var cbpBGSlideshow = (function() {
 
 		} );
 
-		navigation.$navPrev.on( 'click', function() { 
-			navigate( 'prev' ); 
-			if( isSlideshowActive ) { 
-				startSlideshow(); 
-			} 
+		navigation.$navPrev.on( 'click', function() {
+			navigate( 'prev' );
+			if( isSlideshowActive ) {
+				startSlideshow();
+			}
 		} );
-		navigation.$navNext.on( 'click', function() { 
-			navigate( 'next' ); 
-			if( isSlideshowActive ) { 
+		navigation.$navNext.on( 'click', function() {
+			navigate( 'next' );
+			if( isSlideshowActive ) {
 				startSlideshow(); 
 			}
 		} );
@@ -448,7 +448,7 @@ var cbpBGSlideshow = (function() {
 
 		// current item
 		var $oldItem = $items.eq( current );
-		
+
 		if( direction === 'next' ) {
 			current = current < itemsCount - 1 ? ++current : 0;
 		}
@@ -489,7 +489,7 @@ $(function() {
 });
 </script>
 <?php } ?>
-	
+
 <?php zp_apply_filter('theme_body_close'); ?>
 </body>
 </html>

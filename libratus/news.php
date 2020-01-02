@@ -1,4 +1,4 @@
-<?php 
+<?php
 if ((class_exists('Zenpage')) && (ZP_NEWS_ENABLED)) {
 include('inc-header.php'); ?>
 
@@ -28,11 +28,11 @@ include('inc-header.php'); ?>
 				</div>
 			</div>
 		</div>
-		
+
 		<div id="main" class="wrap clearfix">
 			<div class="inner">
 				<div class="page pad">
-				
+
 					<?php if (is_NewsArticle()) { ?>
 					<div class="news-info">
 						<?php if (getNewsDate() && getOption('libratus_date_news')) { ?><span><i class="fa fa-calendar-o"></i>&nbsp;<?php printNewsDate(); ?>&nbsp;&nbsp;&nbsp;&nbsp;</span><?php } ?>
@@ -44,7 +44,7 @@ include('inc-header.php'); ?>
 					<hr />
 					<div class="news-content">
 						<?php $hasFeaturedImage = false; if (function_exists('printSizedFeaturedImage')) $hasFeaturedImage = getFeaturedImage();
-						if ($hasFeaturedImage) { 
+						if ($hasFeaturedImage) {
 							if (is_numeric(getOption('libratus_maxwidth'))) {
 								$size = .70 * getOption('libratus_maxwidth');
 							} else {
@@ -57,14 +57,14 @@ include('inc-header.php'); ?>
 						<?php } ?>
 						<?php printNewsContent(); ?>
 					</div>
-					<?php $singletag = getTags(); $tagstring = implode(', ', $singletag); 
+					<?php $singletag = getTags(); $tagstring = implode(', ', $singletag);
 					if (strlen($tagstring) > 0) { ?>
 					<div class="block"><i class="fa fa-tags fa-fw"></i> <?php printTags('links','','taglist', ', '); ?></div>
 					<?php } ?>
 					<?php if (getCodeBlock(1)) { ?><div class="codeblock"><?php printCodeblock(1); ?></div><?php } ?>
 
 					<?php } else { ?>
-					
+
 					<?php while (next_news()): ?>
 					<div class="news-clip clearfix">
 						<h5><?php printNewsURL(); ?></h5>
@@ -88,9 +88,9 @@ include('inc-header.php'); ?>
 					<?php endwhile; ?>
 					<?php if (getNextNewsPageURL() || getPrevNewsPageURL()) { ?><?php printNewsPageListWithNav(gettext('next').' »','« '.gettext('prev'),true,'pagination', true); } ?>
 					<?php } ?>
-					
+
 				</div>
-				
+
 				<div class="page-sidebar pad">
 					<?php if (is_NewsArticle()) { ?>
 					<div class="single-nav">
@@ -99,7 +99,7 @@ include('inc-header.php'); ?>
 						<?php } else { ?>
 						<span class="button prev-link"><i class="fa fa-caret-left"></i> <?php echo gettext("Prev Article"); ?></span>
 						<?php } ?>
-						
+
 						<?php if ($next = getNextPrevNews('next')) { ?>
 						<a class="button next-link" href="<?php echo $next['link']; ?>" title="<?php echo $next['title']; ?>"><?php echo gettext("Next Article"); ?> <i class="fa fa-caret-right"></i></a>
 						<?php } else { ?>
@@ -112,19 +112,19 @@ include('inc-header.php'); ?>
 					<?php if (!function_exists('printCommentForm')) { ?>
 					<?php if (function_exists('printRating')) { ?>
 					<div id="rating" class="block"><?php printRating(); ?></div>
-					<?php } 
+					<?php }
 					} ?>
 					<?php if (function_exists('printRelatedItems')) { ?>
 					<?php if (getRelatedItems()) { ?><hr />
 					<?php printRelatedItems(5,'news',null,null,true); ?>
 					<?php } ?>
 					<?php } ?>
-					<?php if ($_zp_zenpage->getAllCategories()) { ?>
+					<?php if ($_CMS->getAllCategories()) { ?>
 					<hr /><h5><?php echo gettext('News Categories'); ?></h5>
 					<?php printAllNewsCategories(gettext('All News'),true,'','menu-active',true,'submenu','menu-active'); ?>
 					<?php } ?>
 					<?php } else { ?>
-					<?php if ($_zp_zenpage->getAllCategories()) { ?>
+					<?php if ($_CMS->getAllCategories()) { ?>
 					<h5><?php echo gettext('News Categories'); ?></h5>
 					<?php printAllNewsCategories(gettext('All News'),true,'','menu-active',true,'submenu','menu-active'); ?>
 					<?php } ?>
@@ -132,7 +132,7 @@ include('inc-header.php'); ?>
 				</div>
 			</div>
 		</div>
-		
+
 		<?php if ((function_exists('printCommentForm')) && (is_NewsArticle())) { ?>
 		<div id="comments-page" class="wrap clearfix">
 			<div class="inner">
@@ -147,9 +147,8 @@ include('inc-header.php'); ?>
 			</div>
 		</div>
 		<?php } ?>
-		
-		
-<?php 
+
+<?php
 include('inc-footer.php');
 } else {
 include(SERVERPATH . '/' . ZENFOLDER . '/404.php');

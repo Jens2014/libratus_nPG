@@ -5,7 +5,7 @@
 				<h1><?php printAlbumTitle(); ?></h1>
 			</div>
 		</div>
-		
+
 		<div class="bar">
 			<div class="inner">
 				<?php echo $quickmenu; ?>
@@ -15,7 +15,7 @@
 				</div>
 			</div>
 		</div>
-	
+
 		<div id="main" class="wrap clearfix">
 			<div class="inner">
 				<div class="gallery pad">
@@ -30,7 +30,7 @@
 									<?php if (getNumAlbums()) { ?><div class="album-sub-count"><i class="fa fa-folder"></i><span> <?php echo getNumAlbums(); ?></span></div><?php } ?>
 									<?php if (getNumImages()) { ?><div class="album-img-count"><i class="fa fa-photo"></i><span> <?php echo getNumImages(); ?></span></div><?php } ?>
 									<?php if (function_exists('getCommentCount')) {
-										if (($_zp_current_album->getCommentsAllowed()) && (getCommentCount() > 0)) { ?>
+										if (($_current_album->getCommentsAllowed()) && (getCommentCount() > 0)) { ?>
 										<div class="album-com-count"><i class="fa fa-comments"></i><span> <?php echo getCommentCount(); ?></span></div>
 										<?php }
 									} ?>
@@ -39,18 +39,18 @@
 								<h3 class="album-title"><?php printBareAlbumTitle();?></h3>
 							</div>
 							<i class="fa fa-angle-up mobile-click-details"></i>
-						</div>	
+						</div>
 						<?php endwhile; ?>
 					</div>
-					
+
 					<div class="gallery-thumbs">
-						<?php 
+						<?php
 						$gmap_c = 0;
-						while (next_image()): 
-						// check for geo-coordinates if enabled 
+						while (next_image()):
+						// check for geo-coordinates if enabled
 						if (($gmap_c == 0) && ((function_exists('printGoogleMap')) || (function_exists('printOpenStreetMap')))) { // still checking
 							if (function_exists('printGoogleMap')) {
-								if (getGeoCoord($_zp_current_image)) {
+								if (getGeoCoord($_current_image)) {
 									$gmap_c++; // Print the map, at least one...
 									setOption('gmap_width',null,false); // wipe out any px settings for plugin, flex set in css
 									setOption('gmap_height',400,false);
@@ -73,33 +73,33 @@
 								<a class="swipebox image-zoom" title="<?php echo html_encode('<a href="'.getImageURL().'">'.getBareImageTitle().'</a>'); ?>" href="<?php echo html_encode(getDefaultSizedImage()); ?>"><i class="fa fa-search-plus fa-lg"></i></a>
 								<?php } ?>
 								<?php if (function_exists('getCommentCount')) {
-									if (($_zp_current_image->getCommentsAllowed()) && (getCommentCount() > 0)) { ?>
+									if (($_current_image->getCommentsAllowed()) && (getCommentCount() > 0)) { ?>
 									<div class="image-cr"><i class="fa fa-comments"></i><span> <?php echo getCommentCount(); ?></span></div>
 									<?php }
 								} ?>
-								<?php if (function_exists('getRating')) { 
-								if (getRating($_zp_current_image)) { ?>
-								<div class="image-cr"><i class="fa fa-star"></i><span> <?php echo getRating($_zp_current_image); ?></span></div>
-								<?php } 
+								<?php if (function_exists('getRating')) {
+								if (getRating($_current_image)) { ?>
+								<div class="image-cr"><i class="fa fa-star"></i><span> <?php echo getRating($_current_image); ?></span></div>
+								<?php }
 								} ?>
 							</div>
 							<i class="fa fa-angle-up mobile-click-details"></i>
 						</div>
 						<?php endwhile; ?>
 					</div>
-				
+
 					<?php if (hasNextPage() || hasPrevPage()) { ?><div class="pad"><hr /><?php printPageListWithNav('« '.gettext('prev'),gettext('next').' »',false,true,'pagination'); ?></div><?php } ?>
 				</div>
-				
+
 				<div class="gallery-sidebar pad">
-					<?php if ($_zp_gallery_page == 'album.php') { ?>
+					<?php if ($_gallery_page == 'album.php') { ?>
 					<div class="single-nav">
 						<?php if ($prev = getPrevAlbum()) { ?>
 						<a class="button prev-link" href="<?php echo html_encode(getPrevAlbumURL()); ?>" title="<?php echo gettext('Prev album').': '.html_encode($prev->getTitle()); ?>"><i class="fa fa-caret-left"></i> <?php echo gettext("Prev album"); ?></a>
 						<?php } else { ?>
 						<span class="button prev-link"><i class="fa fa-caret-left"></i> <?php echo gettext("Prev Album"); ?></span>
 						<?php } ?>
-						
+
 						<?php if ($next = getNextAlbum()) { ?>
 						<a class="button next-link" href="<?php echo html_encode(getNextAlbumURL()); ?>" title="<?php echo gettext('Next album').': '.html_encode($next->getTitle()); ?>"><?php echo gettext("Next album"); ?> <i class="fa fa-caret-right"></i></a>
 						<?php } else { ?>
@@ -107,61 +107,61 @@
 						<?php } ?>
 					</div>
 					<hr />
-					<?php if ((getOption('libratus_date_albums')) && ($_zp_gallery_page == 'album.php')) { ?><div><i class="fa fa-calendar fa-fw"></i> <?php printAlbumDate(); ?></div><?php } ?>
+					<?php if ((getOption('libratus_date_albums')) && ($_gallery_page == 'album.php')) { ?><div><i class="fa fa-calendar fa-fw"></i> <?php printAlbumDate(); ?></div><?php } ?>
 					<?php } ?>
-					
+
 					<?php if (getNumAlbums() > 0) { ?><div><i class="fa fa-folder fa-fw"></i> <?php echo getNumAlbums().' '.gettext("albums"); ?></div><?php } ?>
 					<?php if (getNumImages() > 0) { ?><div><i class="fa fa-photo fa-fw"></i> <?php echo getNumImages().' '.gettext("images"); ?></div><?php } ?>
 					<br />
 					<div class="desc"><?php printAlbumDesc(); ?></div>
-					<?php $singletag = getTags(); $tagstring = implode(', ', $singletag); 
+					<?php $singletag = getTags(); $tagstring = implode(', ', $singletag);
 					if (strlen($tagstring) > 0) { ?>
 					<div class="tags"><i class="fa fa-tags fa-fw"></i> <?php printTags('links','','taglist', ', '); ?></div>
 					<?php } ?>
-					
+
 					<?php if (function_exists('printSlideShowLink') && (getNumImages() > 1)) { ?><hr /><div class="slideshow-link"><i class="fa fa-play fa-fw"></i> <?php printSlideShowLink(); ?></div><?php } ?>
 					<hr />
-					
-					<?php if ($_zp_gallery_page == 'album.php') {
+
+					<?php if ($_gallery_page == 'album.php') {
 					if ((class_exists('RSS')) && (getOption('RSS_album_image'))) { ?>
 					<div><i class="fa fa-rss fa-fw"></i> <?php printRSSLink('Collection','',gettext('Album RSS'),'',false); ?></div>
-					<?php } 
+					<?php }
 					if (getOption('libratus_social')) include ('inc-socialshare.php');
 					} ?>
-					
+
 					<?php printCodeblock(); ?>
 
-					<?php if (!function_exists('printCommentForm') || $_zp_gallery_page == 'favorites.php') {
-					if (function_exists('printRating') && $_zp_gallery_page != 'favorites.php') { ?>
+					<?php if (!function_exists('printCommentForm') || $_gallery_page == 'favorites.php') {
+					if (function_exists('printRating') && $_gallery_page != 'favorites.php') { ?>
 					<div id="rating" class="block"><?php printRating(); ?></div>
-					<?php } 
+					<?php }
 					if (function_exists('printAddToFavorites')) include ('inc-favorites.php');
 					} ?>
-					
+
 				</div>
-				
-			</div>	
+
+			</div>
 		</div>
-		
+
 		<?php if ($gmap_c) { ?>
 		<div id="map-gallery" class="clearfix">
 			<div id="map-wrap">
-				<?php if (function_exists('printOpenStreetMap')) { 
+				<?php if (function_exists('printOpenStreetMap')) {
 					printOpenStreetMap();
 				} else {
-					printGoogleMap(gettext('Show Google Map'),null,'show'); 
+					printGoogleMap(gettext('Show Google Map'),null,'show');
 				} ?>
 			</div>
 		</div>
 		<?php } ?>
-		
-		<?php if (function_exists('printCommentForm') && $_zp_gallery_page != 'favorites.php') { ?>
+
+		<?php if (function_exists('printCommentForm') && $_gallery_page != 'favorites.php') { ?>
 		<div id="comments-gallery" class="wrap clearfix">
 			<div class="inner">
 				<div class="comments-sidebar pad">
 					<?php if (function_exists('printRating')) { ?>
 					<div id="rating" class="block"><?php printRating(); ?></div>
-					<?php } 
+					<?php }
 					if (function_exists('printAddToFavorites')) include ('inc-favorites.php');
 					?>
 				</div>
@@ -171,8 +171,8 @@
 			</div>
 		</div>
 		<?php } ?>
-		
-		<?php if (function_exists('printRelatedItems')) { 
+
+		<?php if (function_exists('printRelatedItems')) {
 		$result = getRelatedItems('albums',null);
 		$resultcount = count($result);
 		if ($resultcount != 0) { ?>
@@ -180,7 +180,7 @@
 			<div class="inner pad">
 				<div class="bold-header"><?php echo gettext('Related Albums'); ?></div>
 				<div class="gallery-thumbs-large">
-					<?php $count = 0; if (is_numeric(getOption('libratus_related_maxnumber'))) { $number = getOption('libratus_related_maxnumber'); } else { $number = 10; } 
+					<?php $count = 0; if (is_numeric(getOption('libratus_related_maxnumber'))) { $number = getOption('libratus_related_maxnumber'); } else { $number = 10; }
 					foreach ($result as $item) {
 						if ($count == $number) break;
 						$obj = newAlbum($item['name']);
@@ -208,5 +208,5 @@
 		</div>
 		<?php }
 		} ?>
-		
-<?php include ('inc-footer.php'); ?>	
+
+<?php include ('inc-footer.php'); ?>

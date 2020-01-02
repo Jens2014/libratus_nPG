@@ -1,9 +1,9 @@
 <?php include ('inc-header.php'); ?>
-		
-		<?php if ($_zp_page == 1) { ?>
+
+		<?php if ($_current_page == 1) { ?>
 		<div id="ss-wrap">
 			<ul id="cbp-bislideshow" class="cbp-bislideshow">
-				<?php 
+				<?php
 				$images = getImageStatistic(5,getOption('libratus_ss_type'),getOption('libratus_ss_album'),true);
 				foreach ($images as $image) {
 				echo '<li>';
@@ -15,7 +15,7 @@
 		<?php } else { ?>
 		<div id="ss-noshow" style="background-image: linear-gradient(rgba(0, 0, 0, 0.75),rgba(0, 0, 0, 0.75)), url(<?php echo $bg; ?>);">
 		<?php } ?>
-			
+
 			<div id="home-logo">
 				<div class="inner pad">
 					<?php if (file_exists(UPLOAD_FOLDER.'/logo.png')) { ?>
@@ -25,7 +25,7 @@
 					<?php } ?>
 				</div>
 			</div>
-			
+
 			<div id="home-bar">
 				<div id="gal-desc-wrap">
 					<?php if (getGalleryDesc()) { ?>
@@ -36,7 +36,7 @@
 					</div>
 					<?php } ?>
 					<div class="inner pad">
-						<div id="cbp-bicontrols" class="cbp-bicontrols">	
+						<div id="cbp-bicontrols" class="cbp-bicontrols">
 							<span class="cbp-biprev"></span>
 							<span class="cbp-bipause"></span>
 							<span class="cbp-binext"></span>
@@ -51,7 +51,7 @@
 					</div>
 				</div>
 			</div>
-			
+
 		</div>
 
 		<div id="main" class="wrap clearfix">
@@ -68,7 +68,7 @@
 									<?php if (getNumAlbums()) { ?><div class="album-sub-count"><i class="fa fa-folder"></i><span> <?php echo getNumAlbums(); ?></span></div><?php } ?>
 									<?php if (getNumImages()) { ?><div class="album-img-count"><i class="fa fa-photo"></i><span> <?php echo getNumImages(); ?></span></div><?php } ?>
 									<?php if (function_exists('getCommentCount')) {
-										if (($_zp_current_album->getCommentsAllowed()) && (getCommentCount() > 0)) { ?>
+										if (($_current_album->getCommentsAllowed()) && (getCommentCount() > 0)) { ?>
 										<div class="album-com-count"><i class="fa fa-comments"></i><span> <?php echo getCommentCount(); ?></span></div>
 										<?php }
 									} ?>
@@ -77,20 +77,20 @@
 								<h3 class="album-title"><?php printBareAlbumTitle();?></h3>
 							</div>
 							<i class="fa fa-angle-up mobile-click-details"></i>
-						</div>	
+						</div>
 						<?php endwhile; ?>
 					</div>
 					<?php if (hasNextPage() || hasPrevPage()) { ?><div class="pad"><hr /><?php printPageListWithNav('« '.gettext('prev'),gettext('next').' »',false,true,'pagination'); ?></div><?php } ?>
 				</div>
-				
+
 				<?php if (!getOption('libratus_index_fullwidth')) { ?>
 				<div class="gallery-sidebar pad">
-					<?php printSearchForm('','search',$_zp_themeroot.'/images/magnifying_glass_16x16.png',gettext('Search gallery'),$_zp_themeroot.'/images/list_12x11.png'); ?>	
+					<?php printSearchForm('','search',$_themeroot.'/images/magnifying_glass_16x16.png',gettext('Search gallery'),$_themeroot.'/images/list_12x11.png'); ?>
 					<hr />
-					<?php include ('inc-archive-stats-menu.php'); ?> 	
+					<?php include ('inc-archive-stats-menu.php'); ?>
 				</div>
 				<?php } ?>
-			</div>	
+			</div>
 		</div>
-		
+
 <?php include ('inc-footer.php'); ?>
