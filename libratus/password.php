@@ -20,7 +20,7 @@
 			<div class="inner">
 				<div class="page pad">
 					<?php
-					if (!zp_loggedin()) {
+					if (!npg_loggedin()) {
 					printPasswordForm('', true, false); ?>
 					<?php if (function_exists('printRegistrationForm') && $_gallery->isUnprotectedPage('register')) {
 					printCustomPageURL(gettext('Register for this site'), 'register', '', '<br />');

@@ -4,14 +4,14 @@
 				<div id="login-register">
 				<?php if(function_exists("printUserLogin_out")) { ?>
 				<span>
-				<?php if (zp_loggedin()) { ?>
+				<?php if (npg_loggedin()) { ?>
 					<i class="fa fa-key fa-fw"></i> <?php printUserLogin_out(''); ?>
 				<?php } else { ?>
 					<i class="fa fa-key fa-fw"></i> <?php printCustomPageURL(gettext('Login'),'password',''); ?>
 				<?php } ?>
 				</span>
 				<?php } ?>
-				<?php if (!zp_loggedin() && function_exists('printRegistrationForm')) { ?>
+				<?php if (!npg_loggedin() && function_exists('printRegistrationForm')) { ?>
 				&middot; <i class="fa fa-users fw"></i> <?php printCustomPageURL(gettext('Register'),'register','',''); ?>
 				<?php } ?>
 				</div>
@@ -490,6 +490,6 @@ $(function() {
 </script>
 <?php } ?>
 
-<?php zp_apply_filter('theme_body_close'); ?>
+<?php npgFilters::apply('theme_body_close'); ?>
 </body>
 </html>

@@ -3,8 +3,8 @@ if (!defined('WEBPATH')) die();
 $_current_page_check = 'checkPageValidity';
 $zenpage = extensionEnabled('zenpage');
 $galleryactive = ($_gallery_page == 'index.php' || $_gallery_page == 'album.php' || $_gallery_page == 'image.php') ? true : false;
-require_once (SERVERPATH . '/' . ZENFOLDER . '/' . PLUGIN_FOLDER . '/print_album_menu.php');
-require_once (SERVERPATH . '/' . ZENFOLDER . '/' . PLUGIN_FOLDER . '/image_album_statistics.php');
+require_once (SERVERPATH . '/' . CORE_FOLDER . '/' . PLUGIN_FOLDER . '/print_album_menu.php');
+require_once (SERVERPATH . '/' . CORE_FOLDER . '/' . PLUGIN_FOLDER . '/image_album_statistics.php');
 
 setOption('flag_thumbnail_use_text',true,false);
 setOption('flag_thumbnail_new_text','<i title="'.gettext("New Image").'" class="fa fa-flag fa-fw"></i>',false);
@@ -34,8 +34,7 @@ if (is_object($randomImage) && $randomImage->exists) {
 <head>
 	<meta charset="<?php echo LOCAL_CHARSET; ?>" />
 	<?php
-	zp_apply_filter('theme_head');
-	printHeadTitle();
+	npgFilters::apply('theme_head');
 	?>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
@@ -64,7 +63,7 @@ if (is_object($randomImage) && $randomImage->exists) {
 
 </head>
 <body>
-	<?php if ( (getOption('libratus_analytics')) && (!zp_loggedin(ADMIN_RIGHTS)) ) { ?>
+	<?php if ( (getOption('libratus_analytics')) && (!npg_loggedin(ADMIN_RIGHTS)) ) { ?>
 	<script>
 		<?php if (getOption('libtratus_analytics_type') == 'universal') { ?>
 		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -85,7 +84,7 @@ if (is_object($randomImage) && $randomImage->exists) {
 		<?php } ?>
 	</script>
 	<?php } ?>
-	<?php zp_apply_filter('theme_body_open'); ?>
+	<?php npgFilters::apply('theme_body_open'); ?>
 	<!-- Pushy Menu -->
 	<nav class="pushy pushy-right">
 		<?php if (file_exists(UPLOAD_FOLDER.'/logo.png')) { ?>

@@ -71,7 +71,7 @@
 								printOpenStreetMap();
 							}
 						} elseif (function_exists('printGoogleMap')) {
-							if (getGeoCoord($_current_image)) {
+							if (simpleMap::getCoord($_current_image)) {
 								setOption('gmap_width',null,false); // wipe out any px settings for plugin, flex set in css
 								setOption('gmap_height',300,false);
 								printGoogleMap(gettext('Show Google Map'),null,'show');

@@ -32,5 +32,5 @@ include ('inc-header.php'); ?>
 <?php
 include('inc-footer.php');
 } else {
-include(SERVERPATH . '/' . ZENFOLDER . '/404.php');
+include(SERVERPATH . '/' . CORE_FOLDER . '/404.php');
 } ?>

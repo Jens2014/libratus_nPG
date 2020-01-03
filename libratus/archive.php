@@ -83,7 +83,7 @@ if (isset($_GET['set'])) {
 			break;
 	}
 	if (!$stat_type) {
-		include(SERVERPATH . '/' . ZENFOLDER . '/404.php');
+		include(SERVERPATH . '/' . CORE_FOLDER . '/404.php');
 		exit;
 	} else {
 		include ('archive-stats.php');

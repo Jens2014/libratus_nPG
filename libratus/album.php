@@ -50,7 +50,7 @@
 						// check for geo-coordinates if enabled
 						if (($gmap_c == 0) && ((function_exists('printGoogleMap')) || (function_exists('printOpenStreetMap')))) { // still checking
 							if (function_exists('printGoogleMap')) {
-								if (getGeoCoord($_current_image)) {
+								if (simpleMap::getCoord($_current_image)) {
 									$gmap_c++; // Print the map, at least one...
 									setOption('gmap_width',null,false); // wipe out any px settings for plugin, flex set in css
 									setOption('gmap_height',400,false);
@@ -198,7 +198,7 @@
 										<?php }
 									} ?>
 								</div>
-								<div class="album-date"><?php echo zpFormattedDate(DATE_FORMAT, strtotime($obj->getDateTime())); ?></div>
+								<div class="album-date"><?php echo formattedDate(DATE_FORMAT, strtotime($obj->getDateTime())); ?></div>
 								<h3 class="album-title"><?php echo html_encode($obj->getTitle()); ?></h3>
 							</div>
 						</a>
