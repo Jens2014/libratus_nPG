@@ -113,7 +113,7 @@ var Shira;
                 // remove the substitute
                 $(this.substitute).remove();
                 this.substitute = null;
-                
+
                 // reset applied styles and remove class
                 var cssReset = {};
                 if (this.options.syncPosition) {
