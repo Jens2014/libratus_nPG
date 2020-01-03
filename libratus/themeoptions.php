@@ -6,16 +6,16 @@ class ThemeOptions {
 
 	function __construct() {
 		// force core theme options for this theme
-		setThemeOption('albums_per_row',3,null,'libratus');
-		setThemeOption('images_per_row',6,null,'libratus');
-		setThemeOption('image_use_side','longest',null,'libratus');
+		setThemeOption('albums_per_row', 3, null, 'libratus');
+		setThemeOption('images_per_row', 6, null, 'libratus');
+		setThemeOption('image_use_side', 'longest', null, 'libratus');
 		setThemeOptionDefault('image_size', 800, null, 'libratus');
 		setThemeOption('image_use_side', 'longest', null, 'libratus');
 		setThemeOption('thumb_size', 300, null, 'libratus');
 		// set core theme option defaults
-		setThemeOptionDefault('albums_per_page',15);
-		setThemeOptionDefault('images_per_page',30);
-		setThemeOptionDefault('thumb_crop',false);
+		setThemeOptionDefault('albums_per_page', 15);
+		setThemeOptionDefault('images_per_page', 30);
+		setThemeOptionDefault('thumb_crop', false);
 		// set libratus option defaults
 		setThemeOptionDefault('libratus_maxwidth', '1400');
 		setThemeOptionDefault('libratus_ss_type', 'random');
@@ -33,8 +33,8 @@ class ThemeOptions {
 		setThemeOptionDefault('libratus_twitter', '');
 		setThemeOptionDefault('libratus_google', '');
 		setThemeOptionDefault('libratus_copy', '© '.date("Y"));
-		setThemeOptionDefault('libratus_analytics','');
-		setThemeOptionDefault('libratus_analytics_type','universal');
+		setThemeOptionDefault('libratus_analytics', '');
+		setThemeOptionDefault('libratus_analytics_type', 'universal');
 		setThemeOptionDefault('libratus_stats_images_popular', true);
 		setThemeOptionDefault('libratus_stats_images_latestbyid', true);
 		setThemeOptionDefault('libratus_stats_images_mostrated', true);
@@ -111,14 +111,14 @@ class ThemeOptions {
 		global $_gallery;
 		$albumlist = array();
 		$albumlist['Entire Gallery'] = '';
-		$albums = getNestedAlbumList(null, 9999999, false);
+		$albums = getNestedAlbumList($_gallery, 9999999);
 		foreach($albums as $album) {
 			$albumobj = newAlbum($album['name'], true);
 			$albumlist[$album['name']] = $album['name'];
 		}
 		return array(
 			gettext('Max Width of Site') => array('key' => 'libratus_maxwidth', 'type' => OPTION_TYPE_TEXTBOX,
-				'order'=>1,
+				'order' => 1,
 				'multilingual' => 0,
 				'desc' => gettext('Set the max-width of site in pixels.  Site is fluid but will not expand beyond this width.')),
 			gettext('Home Slideshow Type') => array('key' => 'libratus_ss_type', 'type' => OPTION_TYPE_SELECTOR,
@@ -138,7 +138,7 @@ class ThemeOptions {
 				'selections' => $albumlist,
 				'desc' => gettext('Optionally select a specific album the Home Slideshow pulls from. Default is "Entire Gallery", which pulls from the entire gallery. Be careful with this option to ensure there are images that meet the statistic and they are viewable (rights), otherwise no images will show.')),
 			gettext('Slideshow Interval') => array('key' => 'libratus_ss_interval', 'type' => OPTION_TYPE_TEXTBOX,
-				'order'=>4,
+				'order' => 4,
 				'multilingual' => 0,
 				'desc' => gettext('In milliseconds (default 5000).')),
 			gettext('Home Page Full-width') => array('key' => 'libratus_index_fullwidth', 'type' => OPTION_TYPE_CHECKBOX,
@@ -155,11 +155,11 @@ class ThemeOptions {
 				'order' => 8,
 				'desc' => gettext("Check to display simple links (lightweight) for users to share to their Facebook, Google, and Twitter accounts. Make sure to enable the meta tags plugin and enable the og entries for these sites to pull the correct thumbs, titles, and descriptions upon share.")),
 			gettext('Custom CSS') => array('key' => 'libratus_customcss', 'type' => OPTION_TYPE_TEXTAREA,
-				'order'=>9,
+				'order' => 9,
 				'multilingual' => 0,
 				'desc' => gettext('Enter any custom CSS, safely carries over upon theme upgrade. Will be placed between style tags in the head.')),
 			gettext('Google Tracking Code') => array('key' => 'libratus_analytics', 'type' => OPTION_TYPE_TEXTBOX,
-				'order'=>10,
+				'order' => 10,
 				'multilingual' => 0,
 				'desc' => gettext('Enter your Google Analytics Universal Tracking Id here to auto insert the tracking code on every page (UA-...). Leave blank to omit. Note that the analytics code will not be outputted for admin users, so that administrator page visits will not be counted.')),
 			gettext('Tracking Type') => array('key' => 'libratus_analytics_type', 'type' => OPTION_TYPE_RADIO,
@@ -167,19 +167,19 @@ class ThemeOptions {
 				'buttons' => array(gettext('Universal')=>'universal', gettext('Classic')=>'classic'),
 				'desc' => gettext("Select what type of analytics you are using. See your Google analytics account for explanations.")),
 			gettext('Facebook Link') => array('key' => 'libratus_facebook', 'type' => OPTION_TYPE_TEXTBOX,
-				'order'=>12,
+				'order' => 12,
 				'multilingual' => 0,
 				'desc' => gettext('Enter your full Facebook page link (http://....). Leave blank to omit.')),
 			gettext('Twitter Link') => array('key' => 'libratus_twitter', 'type' => OPTION_TYPE_TEXTBOX,
-				'order'=>13,
+				'order' => 13,
 				'multilingual' => 0,
 				'desc' => gettext('Enter your full Twitter page link (http://....). Leave blank to omit.')),
 			gettext('Google+ Link') => array('key' => 'libratus_google', 'type' => OPTION_TYPE_TEXTBOX,
-				'order'=>14,
+				'order' => 14,
 				'multilingual' => 0,
 				'desc' => gettext('Enter your full Google+ page link (http://....). Leave blank to omit.')),
 			gettext('Copyright Text') => array('key' => 'libratus_copy', 'type' => OPTION_TYPE_TEXTBOX,
-				'order'=>15,
+				'order' => 15,
 				'multilingual' => 0,
 				'desc' => gettext('Edit text for footer copyright. Leave blank to omit.')),
 			gettext('Statistical Pages on Archive') => array('key' => 'libratus_stats', 'type' => OPTION_TYPE_CHECKBOX_ARRAY,
@@ -187,23 +187,23 @@ class ThemeOptions {
 				'checkboxes' => $stats_checkboxes,
 				'desc' => gettext('Select which statistical pages to show in the archive side menu and homepage side menu (optional), if any.')),
 			gettext('Statistical Pages Number') => array('key' => 'libratus_stats_number', 'type' => OPTION_TYPE_TEXTBOX,
-				'order'=>17,
+				'order' => 17,
 				'multilingual' => 0,
 				'desc' => gettext('Enter the number of images or albums to show for each statistic on the archive pages (default 30).')),
 			gettext('Bottom Stats Items per Row') => array('key' => 'libratus_bottom_stats_perrow', 'type' => OPTION_TYPE_RADIO,
 				'order' => 18,
-				'buttons' => array(gettext('Disable')=>0, gettext('1')=>1, gettext('2')=>2, gettext('3')=>3, gettext('4')=>4),
+				'buttons' => array(gettext('Disable') => 0, gettext('1') => 1, gettext('2') => 2, gettext('3') => 3, gettext('4') => 4),
 				'desc' => gettext("Select how many items per row for the bottom stats, if any.")),
 			gettext('Bottom Stats') => array('key' => 'libratus_bottom_stats', 'type' => OPTION_TYPE_CHECKBOX_ARRAY,
 				'order' => 19,
 				'checkboxes' => $bottom_stats_checkboxes,
 				'desc' => gettext('Select what to show in the bottom row, if not disabled above. Recommended to choose multiples of the option items per row.')),
 			gettext('Number of Images in Bottom Stats') => array('key' => 'libratus_bottom_stats_number', 'type' => OPTION_TYPE_TEXTBOX,
-				'order'=>20,
+				'order' => 20,
 				'multilingual' => 0,
 				'desc' => gettext('Enter the number of images or albums to show for each selected statistic in the bottom footer.')),
 			gettext('Related Max Number') => array('key' => 'libratus_related_maxnumber', 'type' => OPTION_TYPE_TEXTBOX,
-				'order'=>21,
+				'order' => 21,
 				'multilingual' => 0,
 				'desc' => gettext('Enter the MAX number of related albums and images to show on their respective pages (if plugin is enabled).'))
 		);
