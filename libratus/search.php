@@ -1,13 +1,13 @@
 <?php include ('inc-header.php');
 
-$zpcount = 0;
+$countnewspages = 0;
 $numimages = getNumImages();
 $numalbums = getNumAlbums();
 $total = $numimages + $numalbums;
-if ($zenpage && !isArchive()) {
-	if (class_exists('CMS') && hasNews()) { $numnews = getNumNews(); } else { $numnews = 0; }
-	if (class_exists('CMS') && hasPages()) { $numpages = getNumPages(); } else { $numpages = 0; }
-	$zpcount = $numpages + $numnews;
+if ($isCMS && !isArchive()) {
+	if ($isCMS && hasNews()) { $numnews = getNumNews(); } else { $numnews = 0; }
+	if ($isCMS && hasPages()) { $numpages = getNumPages(); } else { $numpages = 0; }
+	$countnewspages = $numpages + $numnews;
 	$total = $total + $numnews + $numpages;
 } else {
 	$numpages = $numnews = 0;
@@ -104,9 +104,9 @@ if ($total == 0) {
 
 					<?php if (hasNextPage() || hasPrevPage()) { ?><div class="pad"><hr /><?php printPageListWithNav('« '.gettext('prev'),gettext('next').' »',false,true,'pagination'); ?></div><?php } ?>
 
-					<?php if ((($numalbums + $numimages) > 0) && ($zpcount > 0)) echo '<div class="pad"><hr /></div>'; ?>
+					<?php if ((($numalbums + $numimages) > 0) && ($countnewspages > 0)) echo '<div class="pad"><hr /></div>'; ?>
 
-					<?php if (($zpcount > 0) && ($_current_page == 1)) { ?>
+					<?php if (($countnewspages > 0) && ($_current_page == 1)) { ?>
 					<div class="row">
 					<?php if ($numpages > 0) { $c=0;
 					while (next_page()) { ?>

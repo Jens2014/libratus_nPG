@@ -123,7 +123,7 @@ include ('inc-header.php'); ?>
 					</div>
 					<?php } ?>
 
-					<?php if ($zenpage && class_exists('CMS') && hasNews()) { ?>
+					<?php if ($isCMS && hasNews()) { ?>
 					<?php if ((getNumNews(true) > 0) && (getOption('libratus_date_news'))) { ?>
 					<div class="block archive">
 						<h5><?php echo gettext('News Archive'); ?></h5>

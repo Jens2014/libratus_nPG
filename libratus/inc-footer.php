@@ -51,7 +51,7 @@
 					</div>
 				<?php $c++; } ?>
 
-				<?php if (getOption('libratus_stats_news_latest_bottom') && class_exists('CMS') && class_exists('CMS') && hasNews()) { ?>
+				<?php if (getOption('libratus_stats_news_latest_bottom') && $isCMS && hasNews()) { ?>
 					<div class="<?php echo $class; ?>">
 						<h5><?php echo gettext('Latest News'); ?></h5>
 						<div><?php printLatestNews(3) ?></div>
