@@ -32,7 +32,6 @@ if (is_object($randomImage) && $randomImage->exists) {
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="<?php echo LOCAL_CHARSET; ?>" />
 	<?php
 	npgFilters::apply('theme_head');
 	?>
