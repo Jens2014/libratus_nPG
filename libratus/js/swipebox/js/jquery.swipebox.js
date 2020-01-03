@@ -1,4 +1,5 @@
 /*! Swipebox v1.4.4 | Constantin Saguin csag.co | MIT License | github.com/brutaldesign/swipebox */
+/*! Patch Release v1.4.4.1 | Jens Kossmagk */
 
 ;( function ( window, document, $, undefined ) {
 
@@ -716,7 +717,7 @@
 
 				if ( title ) {
 					$( '#swipebox-top-bar' ).show();
-					$( '#swipebox-title' ).append( title );
+					$( '#swipebox-title' ).text( title );
 				} else {
 					$( '#swipebox-top-bar' ).hide();
 				}
