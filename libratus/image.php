@@ -128,7 +128,7 @@
 						$thumburl = $obj->getThumb(); ?>
 						<div>
 							<a href="<?php echo html_encode($url);?>" title="<?php echo html_encode($obj->getTitle()); ?>">
-								<img src="<?php echo html_encode(pathurlencode($thumburl)); ?>" alt="<?php echo html_encode($obj->getTitle()); ?>" />
+								<img src="<?php echo html_encode($thumburl); ?>" alt="<?php echo html_encode($obj->getTitle()); ?>" />
 							</a>
 							<div class="caption caption-image">
 								<?php if (isImagePhoto($obj)) { ?>

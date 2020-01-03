@@ -187,7 +187,7 @@
 						$url = $obj->getLink();
 						$thumburl = $obj->getThumb(); ?>
 						<a href="<?php echo html_encode($url);?>" title="<?php echo html_encode($obj->getTitle()); ?>">
-							<img src="<?php echo html_encode(pathurlencode($thumburl)); ?>" alt="<?php echo html_encode($obj->getTitle()); ?>" />
+							<img src="<?php echo html_encode($thumburl); ?>" alt="<?php echo html_encode($obj->getTitle()); ?>" />
 							<div class="caption clearfix">
 								<div class="album-details">
 									<?php if ($obj->getNumAlbums()) { ?><div class="album-sub-count"><i class="fa fa-folder"></i><span> <?php echo $obj->getNumAlbums(); ?></span></div><?php } ?>

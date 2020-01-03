@@ -7,7 +7,7 @@
 				$images = getImageStatistic(5,getOption('libratus_ss_type'),getOption('libratus_ss_album'),true);
 				foreach ($images as $image) {
 				echo '<li>';
-				$html = '<img src="' . html_encode(pathurlencode($image->getCustomImage(1200,null,null,null,null,null,null,true))) . '" alt="' . html_encode($image->getTitle()) . '" />';
+				$html = '<img src="' . html_encode($image->getCustomImage(1200,null,null,null,null,null,null,true)) . '" alt="' . html_encode($image->getTitle()) . '" />';
 				echo npgFilters::apply('custom_image_html', $html, false);
 				echo '</li>';
 				} ?>

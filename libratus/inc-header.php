@@ -24,7 +24,7 @@ $randomImage = getRandomImagesAlbum($_current_album);
 $randomImage = getRandomImages();
 }
 if (is_object($randomImage) && $randomImage->exists) {
-	$bg = html_encode(pathurlencode($randomImage->getCustomImage(1200,null,null,null,null,null,null,true)));
+	$bg = html_encode($randomImage->getCustomImage(1200,null,null,null,null,null,null,true));
 } else {
 	$bg = '';
 } ?>

@@ -34,7 +34,7 @@
 						?>
 						<div>
 							<a href="<?php echo html_encode($album->getLink()); ?>" title="<?php echo html_encode($album->getTitle()) ;?>">
-								<?php echo '<img src="' . html_encode(pathurlencode($albumthumb->getThumb())) . '" alt="' . html_encode($albumthumb->getTitle()) . '" /></a>' . "\n"; ?>
+								<?php echo '<img src="' . html_encode($albumthumb->getThumb()) . '" alt="' . html_encode($albumthumb->getTitle()) . '" /></a>' . "\n"; ?>
 							</a>
 							<div class="caption clearfix">
 								<div class="album-details">
@@ -78,7 +78,7 @@
 						foreach ($images as $image) { ?>
 						<div>
 							<a href="<?php echo html_encode($image->getLink()); ?>" title="<?php echo html_encode($image->getTitle()); ?>">
-								<?php echo '<img src="' . html_encode(pathurlencode($image->getThumb())) . '" alt="' . html_encode($image->getTitle()) . "\" /></a>\n<br />"; ?>
+								<?php echo '<img src="' . html_encode($image->getThumb()) . '" alt="' . html_encode($image->getTitle()) . "\" /></a>\n<br />"; ?>
 							</a>
 							<div class="caption caption-image">
 								<?php if (isImagePhoto($image)) { ?>

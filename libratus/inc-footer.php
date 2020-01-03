@@ -76,7 +76,7 @@
 						<div class="gallery-thumbs">
 						<?php foreach ($items as $item) { ?>
 							<a href="<?php echo html_encode($item->getLink()); ?>" title="<?php echo html_encode($item->getTitle()); ?>">
-								<?php echo '<img src="' . html_encode(pathurlencode($item->getCustomImage(null,140,140,140,140,null,null,true))) . '" alt="' . html_encode($item->getTitle()) . "\" />\n<br />"; ?>
+								<?php echo '<img src="' . html_encode($item->getCustomImage(null,140,140,140,140,null,null,true)) . '" alt="' . html_encode($item->getTitle()) . "\" />\n<br />"; ?>
 							</a>
 						<?php } ?>
 						</div>
@@ -94,7 +94,7 @@
 						<div class="gallery-thumbs">
 						<?php foreach ($items as $item) { ?>
 							<a href="<?php echo html_encode($item->getLink()); ?>" title="<?php echo html_encode($item->getTitle()); ?>">
-								<?php echo '<img src="' . html_encode(pathurlencode($item->getCustomImage(null,140,140,140,140,null,null,true))) . '" alt="' . html_encode($item->getTitle()) . "\" />\n<br />"; ?>
+								<?php echo '<img src="' . html_encode($item->getCustomImage(null,140,140,140,140,null,null,true)) . '" alt="' . html_encode($item->getTitle()) . "\" />\n<br />"; ?>
 							</a>
 						<?php } ?>
 						</div>
@@ -112,7 +112,7 @@
 						<div class="gallery-thumbs">
 						<?php foreach ($items as $item) { ?>
 							<a href="<?php echo html_encode($item->getLink()); ?>" title="<?php echo html_encode($item->getTitle()); ?>">
-								<?php echo '<img src="' . html_encode(pathurlencode($item->getCustomImage(null,140,140,140,140,null,null,true))) . '" alt="' . html_encode($item->getTitle()) . "\" />\n<br />"; ?>
+								<?php echo '<img src="' . html_encode($item->getCustomImage(null,140,140,140,140,null,null,true)) . '" alt="' . html_encode($item->getTitle()) . "\" />\n<br />"; ?>
 							</a>
 						<?php } ?>
 						</div>
@@ -130,7 +130,7 @@
 						<div class="gallery-thumbs">
 						<?php foreach ($items as $item) { ?>
 							<a href="<?php echo html_encode($item->getLink()); ?>" title="<?php echo html_encode($item->getTitle()); ?>">
-								<?php echo '<img src="' . html_encode(pathurlencode($item->getCustomImage(null,140,140,140,140,null,null,true))) . '" alt="' . html_encode($item->getTitle()) . "\" />\n<br />"; ?>
+								<?php echo '<img src="' . html_encode($item->getCustomImage(null,140,140,140,140,null,null,true)) . '" alt="' . html_encode($item->getTitle()) . "\" />\n<br />"; ?>
 							</a>
 						<?php } ?>
 						</div>
@@ -148,7 +148,7 @@
 						<div class="gallery-thumbs">
 						<?php foreach ($items as $item) { ?>
 							<a href="<?php echo html_encode($item->getLink()); ?>" title="<?php echo html_encode($item->getTitle()); ?>">
-								<?php echo '<img src="' . html_encode(pathurlencode($item->getCustomImage(null,140,140,140,140,null,null,true))) . '" alt="' . html_encode($item->getTitle()) . "\" />\n<br />"; ?>
+								<?php echo '<img src="' . html_encode($item->getCustomImage(null,140,140,140,140,null,null,true)) . '" alt="' . html_encode($item->getTitle()) . "\" />\n<br />"; ?>
 							</a>
 						<?php } ?>
 						</div>
@@ -166,7 +166,7 @@
 						<div class="gallery-thumbs">
 						<?php foreach ($items as $item) { ?>
 							<a href="<?php echo html_encode($item->getLink()); ?>" title="<?php echo html_encode($item->getTitle()); ?>">
-								<?php echo '<img src="' . html_encode(pathurlencode($item->getCustomImage(null,140,140,140,140,null,null,true))) . '" alt="' . html_encode($item->getTitle()) . "\" />\n<br />"; ?>
+								<?php echo '<img src="' . html_encode($item->getCustomImage(null,140,140,140,140,null,null,true)) . '" alt="' . html_encode($item->getTitle()) . "\" />\n<br />"; ?>
 							</a>
 						<?php } ?>
 						</div>
@@ -184,7 +184,7 @@
 						<div class="gallery-thumbs">
 						<?php foreach ($items as $item) { ?>
 							<a href="<?php echo html_encode($item->getLink()); ?>" title="<?php echo html_encode($item->getTitle()); ?>">
-								<?php echo '<img src="' . html_encode(pathurlencode($item->getCustomImage(null,140,140,140,140,null,null,true))) . '" alt="' . html_encode($item->getTitle()) . "\" />\n<br />"; ?>
+								<?php echo '<img src="' . html_encode($item->getCustomImage(null,140,140,140,140,null,null,true)) . '" alt="' . html_encode($item->getTitle()) . "\" />\n<br />"; ?>
 							</a>
 						<?php } ?>
 						</div>
@@ -204,7 +204,7 @@
 						<div class="gallery-thumbs">
 						<?php foreach ($items as $item) { $image = $item->getAlbumThumbImage(); ?>
 							<a href="<?php echo html_encode($item->getLink()); ?>" title="<?php echo html_encode($item->getTitle()); ?>">
-								<?php echo '<img src="' . html_encode(pathurlencode($image->getCustomImage(null,140,140,140,140,null,null,true))) . '" alt="' . html_encode($item->getTitle()) . "\" />\n<br />"; ?>
+								<?php echo '<img src="' . html_encode($image->getCustomImage(null,140,140,140,140,null,null,true)) . '" alt="' . html_encode($item->getTitle()) . "\" />\n<br />"; ?>
 							</a>
 						<?php } ?>
 						</div>
@@ -222,7 +222,7 @@
 						<div class="gallery-thumbs">
 						<?php foreach ($items as $item) { $image = $item->getAlbumThumbImage(); ?>
 							<a href="<?php echo html_encode($item->getLink()); ?>" title="<?php echo html_encode($item->getTitle()); ?>">
-								<?php echo '<img src="' . html_encode(pathurlencode($image->getCustomImage(null,140,140,140,140,null,null,true))) . '" alt="' . html_encode($item->getTitle()) . "\" />\n<br />"; ?>
+								<?php echo '<img src="' . html_encode($image->getCustomImage(null,140,140,140,140,null,null,true)) . '" alt="' . html_encode($item->getTitle()) . "\" />\n<br />"; ?>
 							</a>
 						<?php } ?>
 						</div>
@@ -240,7 +240,7 @@
 						<div class="gallery-thumbs">
 						<?php foreach ($items as $item) { $image = $item->getAlbumThumbImage(); ?>
 							<a href="<?php echo html_encode($item->getLink()); ?>" title="<?php echo html_encode($item->getTitle()); ?>">
-								<?php echo '<img src="' . html_encode(pathurlencode($image->getCustomImage(null,140,140,140,140,null,null,true))) . '" alt="' . html_encode($item->getTitle()) . "\" />\n<br />"; ?>
+								<?php echo '<img src="' . html_encode($image->getCustomImage(null,140,140,140,140,null,null,true)) . '" alt="' . html_encode($item->getTitle()) . "\" />\n<br />"; ?>
 							</a>
 						<?php } ?>
 						</div>
@@ -258,7 +258,7 @@
 						<div class="gallery-thumbs">
 						<?php foreach ($items as $item) { $image = $item->getAlbumThumbImage(); ?>
 							<a href="<?php echo html_encode($item->getLink()); ?>" title="<?php echo html_encode($item->getTitle()); ?>">
-								<?php echo '<img src="' . html_encode(pathurlencode($image->getCustomImage(null,140,140,140,140,null,null,true))) . '" alt="' . html_encode($item->getTitle()) . "\" />\n<br />"; ?>
+								<?php echo '<img src="' . html_encode($image->getCustomImage(null,140,140,140,140,null,null,true)) . '" alt="' . html_encode($item->getTitle()) . "\" />\n<br />"; ?>
 							</a>
 						<?php } ?>
 						</div>
@@ -276,7 +276,7 @@
 						<div class="gallery-thumbs">
 						<?php foreach ($items as $item) { $image = $item->getAlbumThumbImage(); ?>
 							<a href="<?php echo html_encode($item->getLink()); ?>" title="<?php echo html_encode($item->getTitle()); ?>">
-								<?php echo '<img src="' . html_encode(pathurlencode($image->getCustomImage(null,140,140,140,140,null,null,true))) . '" alt="' . html_encode($item->getTitle()) . "\" />\n<br />"; ?>
+								<?php echo '<img src="' . html_encode($image->getCustomImage(null,140,140,140,140,null,null,true)) . '" alt="' . html_encode($item->getTitle()) . "\" />\n<br />"; ?>
 							</a>
 						<?php } ?>
 						</div>
@@ -294,7 +294,7 @@
 						<div class="gallery-thumbs">
 						<?php foreach ($items as $item) { $image = $item->getAlbumThumbImage(); ?>
 							<a href="<?php echo html_encode($item->getLink()); ?>" title="<?php echo html_encode($item->getTitle()); ?>">
-								<?php echo '<img src="' . html_encode(pathurlencode($image->getCustomImage(null,140,140,140,140,null,null,true))) . '" alt="' . html_encode($item->getTitle()) . "\" />\n<br />"; ?>
+								<?php echo '<img src="' . html_encode($image->getCustomImage(null,140,140,140,140,null,null,true)) . '" alt="' . html_encode($item->getTitle()) . "\" />\n<br />"; ?>
 							</a>
 						<?php } ?>
 						</div>
@@ -312,7 +312,7 @@
 						<div class="gallery-thumbs">
 						<?php foreach ($items as $item) { $image = $item->getAlbumThumbImage(); ?>
 							<a href="<?php echo html_encode($item->getLink()); ?>" title="<?php echo html_encode($item->getTitle()); ?>">
-								<?php echo '<img src="' . html_encode(pathurlencode($image->getCustomImage(null,140,140,140,140,null,null,true))) . '" alt="' . html_encode($item->getTitle()) . "\" />\n<br />"; ?>
+								<?php echo '<img src="' . html_encode($image->getCustomImage(null,140,140,140,140,null,null,true)) . '" alt="' . html_encode($item->getTitle()) . "\" />\n<br />"; ?>
 							</a>
 						<?php } ?>
 						</div>
