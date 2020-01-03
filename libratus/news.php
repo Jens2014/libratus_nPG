@@ -1,5 +1,5 @@
 <?php
-if ((class_exists('Zenpage')) && (class_exists('CMS') && hasNews())) {
+if ((class_exists('CMS') && hasNews())) {
 include('inc-header.php'); ?>
 
 		<div id="page-header" class="wrap" style="background-image: linear-gradient(rgba(0, 0, 0, 0.65),rgba(0, 0, 0, 0.65)), url(<?php echo $bg; ?>);">
@@ -12,7 +12,7 @@ include('inc-header.php'); ?>
 				<h1><?php printCurrentNewsCategory(''); ?></h1>
 				<div id="desc"><?php printNewsCategoryDesc(); ?></div>
 				<?php } else { ?>
-				<h1><?php echo gettext('News'); ?></h1>
+				<h1><?php echo NEWS_LABEL; ?></h1>
 				<?php } ?>
 			</div>
 		</div>
@@ -94,13 +94,13 @@ include('inc-header.php'); ?>
 				<div class="page-sidebar pad">
 					<?php if (is_NewsArticle()) { ?>
 					<div class="single-nav">
-						<?php if ($prev = getNextPrevNews('prev')) { ?>
+						<?php if ($prev = getprevNewsURL()) { ?>
 						<a class="button prev-link" href="<?php echo $prev['link']; ?>" title="<?php echo $prev['title']; ?>"><i class="fa fa-caret-left"></i> <?php echo gettext("Prev Article"); ?></a>
 						<?php } else { ?>
 						<span class="button prev-link"><i class="fa fa-caret-left"></i> <?php echo gettext("Prev Article"); ?></span>
 						<?php } ?>
 
-						<?php if ($next = getNextPrevNews('next')) { ?>
+						<?php if ($next = getnextNewsURL()) { ?>
 						<a class="button next-link" href="<?php echo $next['link']; ?>" title="<?php echo $next['title']; ?>"><?php echo gettext("Next Article"); ?> <i class="fa fa-caret-right"></i></a>
 						<?php } else { ?>
 						<span class="button next-link"><?php echo gettext("Next Article"); ?> <i class="fa fa-caret-right"></i></span>

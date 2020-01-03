@@ -68,7 +68,7 @@ class ThemeOptions {
 		$showdates_checkboxes = array(
 			gettext('Albums') => 'libratus_date_albums',
 			gettext('Images') => 'libratus_date_images', 
-			gettext('News') => 'libratus_date_news',
+			NEWS_LABEL => 'libratus_date_news',
 			gettext('Pages') => 'libratus_date_pages'
 			);
 		$stats_checkboxes = array(

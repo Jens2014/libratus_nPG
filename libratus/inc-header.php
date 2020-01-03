@@ -1,7 +1,7 @@
 <?php
 if (!defined('WEBPATH')) die();
 $_current_page_check = 'checkPageValidity';
-$zenpage = extensionEnabled('zenpage');
+$zenpage = class_exists('CMS');
 $galleryactive = ($_gallery_page == 'index.php' || $_gallery_page == 'album.php' || $_gallery_page == 'image.php') ? true : false;
 require_once (SERVERPATH . '/' . CORE_FOLDER . '/' . PLUGIN_FOLDER . '/print_album_menu.php');
 require_once (SERVERPATH . '/' . CORE_FOLDER . '/' . PLUGIN_FOLDER . '/image_album_statistics.php');
@@ -104,7 +104,7 @@ if (is_object($randomImage) && $randomImage->exists) {
 			</li>
 			<?php if (($zenpage) && (getNumNews(true) > 0) && (class_exists('CMS') && hasNews())) { ?>
 			<li>
-				<a <?php if (($_gallery_page == "news.php") && (is_null($_CMS_current_category))) { ?>class="active" <?php } ?>href="<?php echo getNewsIndexURL(); ?>"><?php echo gettext('News'); ?></a>
+				<a <?php if (($_gallery_page == "news.php") && (is_null($_CMS_current_category))) { ?>class="active" <?php } ?>href="<?php echo getNewsIndexURL(); ?>"><?php echo NEWS_LABEL; ?></a>
 				<?php printAllNewsCategories('',false,'','active open',true,'submenu','active open','list',true,null); ?>
 			</li>
 			<?php } ?>
